@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Eligibility Checker</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lavender; /* light purple */
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        input {
+            padding: 8px;
+            width: 150px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-left: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Voting Eligibility Checker</h2>
+
+<input type="number" id="age" placeholder="Enter age">
+<button onclick="checkVote()">Check</button>
+
+<div id="result"></div>
+
+<script>
+function checkVote() {
+    let age = Number(document.getElementById("age").value);
+    let result = document.getElementById("result");
+
+    if (age <= 0 || isNaN(age)) {
+        result.innerText = "Please enter a valid age.";
+        result.style.color = "black";
+    }
+    else if (age >= 18) {
+        result.innerText = "You are eligible to vote.";
+        result.style.color = "green";
+    }
+    else {
+        result.innerText = "You are not eligible to vote.";
+        result.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
